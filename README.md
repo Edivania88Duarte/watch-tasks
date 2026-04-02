@@ -2,6 +2,9 @@
 
 Gerenciamento de tarefas com login, categorias, colaboradores e relatório simples. Stack: Node (Express) rodando na AWS Lambda, PostgreSQL, OpenAPI/Swagger, Jest no back e Vue 3 + Vite + Tailwind no front.
 
+<img width="1914" height="984" alt="image" src="https://github.com/user-attachments/assets/bed99e4d-bd48-4afa-98ef-35dd67edbee1" />
+
+
 ## Links da entrega
 
 - **Health check:** https://5v6yp86rk3.execute-api.us-east-2.amazonaws.com/dev/health — deve retornar `{"ok":true}`.
