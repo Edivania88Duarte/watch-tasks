@@ -1,0 +1,59 @@
+service: watch-tasks-api
+
+frameworkVersion: '3'
+
+# Carrega backend/.env na resolução de ${env:...} durante `serverless deploy`
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-2'}
+  environment:
+    DATABASE_URL: ${env:DATABASE_URL}
+    JWT_SECRET: ${env:JWT_SECRET}
+    JWT_EXPIRES_IN: ${env:JWT_EXPIRES_IN, '7d'}
+    # Base pública da API (sem barra no fim) — usada pelo Swagger UI em /api/docs
+    PUBLIC_API_URL: ${env:PUBLIC_API_URL, ''}
+
+functions:
+  api:
+    handler: src/handler.handler
+    timeout: 29
+    memorySize: 512
+    # Mesma VPC que o RDS; SG dedicado com entrada 5432 permitida na SG do RDS
+    vpc:
+      securityGroupIds:
+        - sg-0ac6709181c914b8d
+      subnetIds:
+        - subnet-0298d8e0047973b5e
+        - subnet-03081ac19cf6f0bd2
+        - subnet-088b0d0959557c265
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+      - http:
+          path: /
+          method: ANY
+          cors: true
+
+package:
+  patterns:
+    - '!.env'
+    - '!.env.*'
+    - '!tests/**'
+    - 'node_modules/**'
+    - 'sql/**'
+    - 'openapi.yaml'
+    - 'src/**'
+    - 'package.json'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000

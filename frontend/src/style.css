@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tema streaming: sala de cinema (Unsplash — substitua por imagem em /public se preferir) */
+body {
+  @apply text-slate-900 antialiased min-h-screen;
+  background-color: #0c1222;
+  background-image: linear-gradient(
+      160deg,
+      rgba(15, 23, 42, 0.94) 0%,
+      rgba(67, 56, 202, 0.55) 45%,
+      rgba(15, 23, 42, 0.96) 100%
+    ),
+    url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+}
