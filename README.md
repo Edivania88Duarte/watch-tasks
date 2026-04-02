@@ -2,7 +2,8 @@
 
 Gerenciamento de tarefas com login, categorias, colaboradores e relatório simples. Stack: Node (Express) rodando na AWS Lambda, PostgreSQL, OpenAPI/Swagger, Jest no back e Vue 3 + Vite + Tailwind no front.
 
-<img width="1914" height="984" alt="image" src="https://github.com/user-attachments/assets/bed99e4d-bd48-4afa-98ef-35dd67edbee1" />
+<img width="1911" height="987" alt="image" src="https://github.com/user-attachments/assets/790eb7d3-6304-4747-a6d9-093938bb99a5" />
+
 
 
 ## Links da entrega
@@ -11,7 +12,7 @@ Gerenciamento de tarefas com login, categorias, colaboradores e relatório simpl
 - *(A raiz `…/dev/` no browser dá "Cannot GET /"; é normal, não tem rota na `/`.)*
 - **Swagger:** https://5v6yp86rk3.execute-api.us-east-2.amazonaws.com/dev/api/docs/ — use a barra no final. Em **Servers** seleciona a URL da AWS, faz login ou register, depois **Authorize** com `Bearer <token>` e testa o restante.
 - **Base da API** (para variáveis como `VITE_API_URL`): `https://5v6yp86rk3.execute-api.us-east-2.amazonaws.com/dev` — sem barra no final.
-- **Front (Vercel):** a adicionar quando estiver publicado.
+- **Front (Vercel):** https://watch-tasks.vercel.app/
 
 Não há usuário de demo: crie uma conta pelo Swagger ou pela tela de registro. O `.env` com senhas e secrets não vai para o Git (`.gitignore`).
 
